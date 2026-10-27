@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fair Value Gap Trading &amp; Rejection Blocks | ICT Concepts</title>
+<meta name="description" content="Master fair value gap trading, inversion FVGs, and rejection blocks with precise technical breakdowns and chart examples.">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font:1rem/1.65 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:#1c2428;background:#f2f5f7;overflow-x:hidden}
+.notice{background:#10404f;color:#fff;text-align:center;font-size:.9rem;line-height:1.45;padding:.7rem 1rem;border-bottom:4px solid #e0a100}
+header{background:#fff;border-bottom:1px solid #d4dce1}
+.bar{max-width:60rem;margin:0 auto;padding:.8rem 1rem;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:space-between;align-items:center}
+.logo{font:700 1.2rem Georgia,serif;color:#10404f;text-decoration:none}
+nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.25rem}
+nav a{display:block;padding:.45rem .75rem;border-radius:.4rem;color:#1c2428;text-decoration:none;font-weight:600}
+nav a:hover,nav a:focus-visible{background:#e3ecef;outline:2px solid #10404f}
+nav a[aria-current=page]{background:#10404f;color:#fff}
+main{max-width:60rem;margin:0 auto;padding:1.5rem 1rem 2.5rem}
+h1,h2,h3{font-family:Georgia,serif;color:#10404f;line-height:1.2;overflow-wrap:anywhere}
+h1{font-size:clamp(1.8rem,6vw,2.8rem);margin:.3rem 0 .8rem}
+h2{font-size:clamp(1.3rem,4vw,1.8rem);margin:2rem 0 .5rem}
+h3{font-size:1.15rem;margin:0 0 .4rem}
+p,li{max-width:44rem}
+.hero,.card,.warn{background:#fff;border:1px solid #d4dce1;border-radius:.5rem;padding:1.1rem}
+.hero{border-left:6px solid #e0a100;padding:1.4rem;margin-bottom:1.5rem}
+.warn{background:#fff7de;border-color:#e0a100;margin-top:1.5rem}
+.card p,.hero p{margin:0 0 .6rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:1rem}
+.chart{background:#fff;border:1px solid #d4dce1;border-radius:.5rem;padding:.8rem;max-width:30rem}
+.chart svg{display:block;width:100%;height:auto}
+.chart p{font-size:.9rem;margin:.5rem 0 0}
+.wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;background:#fff}
+th,td{border:1px solid #d4dce1;padding:.6rem;text-align:left;vertical-align:top}
+th{background:#e3ecef}
+ol{padding-left:1.3rem}
+li{margin-bottom:.5rem}
+.btn{display:inline-block;background:#10404f;color:#fff;padding:.7rem 1.2rem;border-radius:.4rem;text-decoration:none;font-weight:600;margin:.3rem .5rem .3rem 0}
+.btn:hover,.btn:focus-visible{background:#0a2d38;outline:2px solid #e0a100}
+footer{background:#14262c;color:#e8eef0;text-align:center;padding:1.5rem 1rem}
+footer p{margin:.4rem auto;max-width:44rem}
+@media(max-width:560px){.bar{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<div class="notice" role="note">This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</div>
+<header><div class="bar"><a class="logo" href="index.html">ICT Market Guide</a>
+<nav aria-label="Main"><ul><li><a href="index.html">Home</a></li><li><a href="concepts.html" aria-current="page">Concepts</a></li><li><a href="strategy.html">Strategy</a></li><li><a href="about.html">About</a></li></ul></nav></div></header>
+<main>
+<h1>Fair value gaps, inversions, and rejection blocks</h1>
+<p>These ideas describe how traders read imbalances and reactions on a price chart. Each section gives a plain definition, how to mark it, and a common way it is used.</p>
+<h2>Fair value gap trading</h2>
+<p>A fair value gap (FVG) is a three-candle pattern in which the first candle and third candle do not overlap, leaving a gap across the middle candle. In a bullish FVG, the gap sits between the high of candle 1 and the low of candle 3. Traders view it as an imbalance where price moved too quickly for both sides to trade fairly.</p>
+<p>In <strong>fair value gap trading</strong>, the common idea is that price may return to the gap and react there before continuing in its original direction.</p>
+<div class="chart">
+<svg viewBox="0 0 320 170" role="img" aria-label="Three candles with a gap between the high of the first and the low of the third">
+<rect x="40" y="95" width="30" height="45" fill="#c0392b"/><line x1="55" y1="85" x2="55" y2="150" stroke="#c0392b" stroke-width="2"/>
+<rect x="145" y="45" width="30" height="75" fill="#1e8449"/><line x1="160" y1="35" x2="160" y2="130" stroke="#1e8449" stroke-width="2"/>
+<rect x="250" y="20" width="30" height="40" fill="#1e8449"/><line x1="265" y1="10" x2="265" y2="70" stroke="#1e8449" stroke-width="2"/>
+<rect x="40" y="70" width="240" height="15" fill="#e0a100" opacity=".35"/>
+<text x="165" y="162" font-size="11" fill="#1c2428" text-anchor="middle">Candle 1 - Candle 2 - Candle 3</text>
+</svg>
+<p>Simplified diagram: the shaded band is the bullish fair value gap, running from the top of candle 1 to the bottom of candle 3.</p>
+</div>
+<h2>ICT fair value gap trading strategy: retest steps</h2>
+<ol>
+<li><strong>Find direction.</strong> Check a higher time frame to see whether price is trending up or down.</li>
+<li><strong>Spot the imbalance.</strong> Mark a three-candle gap formed by a strong, fast move in that direction.</li>
+<li><strong>Wait for the retest.</strong> Let price pull back into the gap. Do not chase the move.</li>
+<li><strong>Look for a reaction.</strong> Watch for a candle that holds the gap and moves back in the trend direction.</li>
+<li><strong>Set risk.</strong> Place the stop just beyond the gap and target the next high or low.</li>
+</ol>
+<h2>Inversion fair value gap and the ICT IFVG model</h2>
+<p>An <strong>inversion fair value gap</strong> (IFVG) forms when price closes through an existing FVG instead of respecting it. The gap then flips its role. A bullish FVG that price closes below can act as resistance, and a bearish FVG that price closes above can act as support.</p>
+<p>The <strong>ICT IFVG model</strong> gives traders an entry trigger, which is a clear reason to enter. The trigger is the first return to the flipped gap after the close through it.</p>
+<div class="grid">
+<div class="card"><h3>Step 1</h3><p>Mark a fair value gap on your chart.</p></div>
+<div class="card"><h3>Step 2</h3><p>Wait for a candle to close fully through the gap.</p></div>
+<div class="card"><h3>Step 3</h3><p>Wait for price to return to the flipped gap and react from the other side. That reaction is the entry trigger.</p></div>
+</div>
+<h2>Rejection block trading setup</h2>
+<p>A rejection block is the zone covered by a long wick at a swing high or swing low. The wick shows price was pushed away from a level. In a <strong>rejection block trading setup</strong>, traders mark the wick area and watch for a second reaction when price revisits it.</p>
+<div class="grid">
+<div class="card"><h3>Bullish rejection</h3><p>A long lower wick at a swing low. The wick zone may act as support.</p></div>
+<div class="card"><h3>Bearish rejection</h3><p>A long upper wick at a swing high. The wick zone may act as resistance.</p></div>
+</div>
+<p><a class="btn" href="strategy.html">Next: the strategy guide</a></p>
+<div class="warn"><strong>Not financial advice.</strong> These are simplified teaching examples. Patterns fail often, and trading carries a real risk of loss.</div>
+</main>
+<footer>
+<p>This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</p>
+<p>ICT Market Guide &copy; 2026. Course project for MKTG:4400.</p>
+</footer>
+</body>
+</html>

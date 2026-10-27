@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lampham33.github.io/ict-marketing-site/sitemap.xml
